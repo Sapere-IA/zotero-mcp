@@ -1,0 +1,27 @@
+[project]
+name = "zotero-mcp"
+version = "0.1.0"
+description = "Zotero MCP server for Claude Code: read, search and organize a Zotero library, with undo"
+readme = "README.md"
+authors = [
+    { name = "Roberto Bada", email = "roberto@sapereia.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp>=2.3.0",
+]
+
+[project.scripts]
+zotero-mcp = "zotero_mcp.server:main"
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+[tool.pytest.ini_options]
+pythonpath = ["tests"]
